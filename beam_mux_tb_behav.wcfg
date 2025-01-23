@@ -13,14 +13,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="300.001 ns"></ZoomEndTime>
-      <Cursor1Time time="300.000 ns"></Cursor1Time>
+      <ZoomEndTime time="252.601 ns"></ZoomEndTime>
+      <Cursor1Time time="14.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="212"></NameColumnWidth>
-      <ValueColumnWidth column_width="177"></ValueColumnWidth>
+      <NameColumnWidth column_width="318"></NameColumnWidth>
+      <ValueColumnWidth column_width="152"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="48" />
+   <WVObjectSize size="40" />
    <wvobject fp_name="/beam_mux_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -146,62 +146,20 @@
       <obj_property name="CustomSignalColor">#808000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tlast" type="array">
       <obj_property name="ElementShortName">s_axis_tlast[0:3]</obj_property>
       <obj_property name="ObjectShortName">s_axis_tlast[0:3]</obj_property>
       <obj_property name="CustomSignalColor">#808000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tvalid" type="array">
       <obj_property name="ElementShortName">m_axis_tvalid[0:3]</obj_property>
       <obj_property name="ObjectShortName">m_axis_tvalid[0:3]</obj_property>
       <obj_property name="CustomSignalColor">#808000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tready" type="array">
       <obj_property name="ElementShortName">m_axis_tready[0:3]</obj_property>
@@ -215,136 +173,6 @@
       <obj_property name="CustomSignalColor">#808000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tlast" type="array">
-      <obj_property name="ElementShortName">m_axis_tlast[0:3]</obj_property>
-      <obj_property name="ObjectShortName">m_axis_tlast[0:3]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/almost_empty" type="array">
-      <obj_property name="ElementShortName">almost_empty[0:3]</obj_property>
-      <obj_property name="ObjectShortName">almost_empty[0:3]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/almost_full" type="array">
-      <obj_property name="ElementShortName">almost_full[0:3]</obj_property>
-      <obj_property name="ObjectShortName">almost_full[0:3]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/s_axis_aresetn_2" type="array">
-      <obj_property name="ElementShortName">s_axis_aresetn_2[0:3]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_aresetn_2[0:3]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/s_axis_aclk_2" type="array">
-      <obj_property name="ElementShortName">s_axis_aclk_2[0:3]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_aclk_2[0:3]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tvalid_2" type="array">
-      <obj_property name="ElementShortName">s_axis_tvalid_2[0:3]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_tvalid_2[0:3]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tready_2" type="array">
-      <obj_property name="ElementShortName">s_axis_tready_2[0:3]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_tready_2[0:3]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2" type="array">
-      <obj_property name="ElementShortName">s_axis_tdata_2[0:3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_tdata_2[0:3][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#808000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tdata_2[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/beam_mux_tb/bm1/s_axis_tlast_2" type="array">
       <obj_property name="ElementShortName">s_axis_tlast_2[0:3]</obj_property>
@@ -370,46 +198,6 @@
       <obj_property name="CustomSignalColor">#808000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tdata_2[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/beam_mux_tb/bm1/m_axis_tlast_2" type="array">
       <obj_property name="ElementShortName">m_axis_tlast_2[0:3]</obj_property>
