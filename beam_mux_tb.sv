@@ -25,11 +25,12 @@ module beam_mux_tb;
         if(mod_t_ready == 1'b1) begin
      	 
           mod_t_valid <= 1'b1;	 
-       	  mod_t_data <= q.pop_front();
+
+       	  mod_t_data <= q.pop_front();	   
         
           $display("SIZE: %d, DEC: %d BIN: %b\n", q.size(), mod_t_data, mod_t_data);
           
-          if(q.size() == 1) begin
+           if(q.size() == 1) begin
           	 mod_t_last <= 1'b1;
           end else begin
           	 mod_t_last <= 1'b0;	
@@ -101,9 +102,8 @@ initial begin
 
    //for(int ii = 0; ii < 2**16; ii++) begin
    //for(int ii = 0; ii < 2**15 + 2**10; ii++) begin
-   for(int ii = 0; ii < 2**10 ; ii++) begin            
-      stim_q.push_back(ii);
-   end
+
+   ///////////////  RESET  ///////////////   
 
    rst = 1'b0;
 
@@ -121,77 +121,142 @@ initial begin
 
    dac_sel = 2'b00;
 
-   #20ps;   
+   #20ps;
 
-   while(stim_q.size() > 0) begin
-
-      @(posedge clk)
-	
-      mod_t_valid <= 1'b0;
-      mod_t_data <= 32'd0;
-      
-      if(mod_t_ready == 1'b1) begin
-	 
-        mod_t_valid <= 1'b1;	 
-	mod_t_data <= stim_q.pop_front();
-      
-        $display("SIZE: %d, DEC: %d BIN: %b\n", stim_q.size(), mod_t_data, mod_t_data);
-        
-        if(stim_q.size() == 1) begin
-        	 mod_t_last <= 1'b1;
-        end else begin
-        	 mod_t_last <= 1'b0;	
-        end
-      end // if (mod_t_ready == 1'b1)
-
-   end // while (stim_q.size() > 0 && mod_t_ready == 1'b1)
-
-   #10ps;
-   
-   mod_t_last <= 1'b0;
-   mod_t_valid = 1'b0;
-
-   #10ps;
-
-   for(int ii = 0; ii < 2**10 ; ii++) begin            
-      stim_q.push_back(ii);
-   end
-
-   while(stim_q.size() > 0) begin
-
-      @(posedge clk)
-	
-      mod_t_valid <= 1'b0;
-      mod_t_data <= 32'd0;
-      
-      if(mod_t_ready == 1'b1) begin
-	 
-        mod_t_valid <= 1'b1;	 
-	mod_t_data <= stim_q.pop_front();
-      
-        $display("SIZE: %d, DEC: %d BIN: %b\n", stim_q.size(), mod_t_data, mod_t_data);
-        
-        if(stim_q.size() == 1) begin
-        	 mod_t_last <= 1'b1;
-        end else begin
-        	 mod_t_last <= 1'b0;	
-        end
-      end // if (mod_t_ready == 1'b1)
-
-   end // while (stim_q.size() > 0 && mod_t_ready == 1'b1)
-
-   #10ps;
-   
-   mod_t_last <= 1'b0;
-   mod_t_valid = 1'b0;
-
-   #10ps;
+   ///////////////  TEST 4 SIZE 1024 LOADS PARALLEL FIFOS  ///////////////
 
    for(int ii = 0; ii < 2**10 ; ii++) begin            
       stim_q.push_back(ii);
    end
 
    unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+
+   ///////////////  FLUSH  ///////////////      
+
+   #10ps;
+   
+   mod_t_last = 1'b0;
+   mod_t_valid = 1'b0;   
+
+   #10000ps;
+
+   dac_sel = 2'b00;
+
+   #20ps;
+   
+
+   ///////////////  TEST 4 SIZE 1024 LOADS PARALLEL FIFOS  ///////////////
+
+   for (int ld = 0; ld < 9; ld++) begin
+   
+     for(int ii = 0; ii < 2**10 ; ii++) begin            
+        stim_q.push_back(ii);
+     end
+     
+     unload_q(stim_q);
+     
+     stim_q.delete();
+      
+   end
+   
+   
+   ///////////////  RESET  ///////////////   
+
+   rst = 1'b0;
+
+   #20ps;
+
+   rst = 1'b1;
+   
+   #10000ps;
+   
+   rst = 1'b0;
+   mod_t_last = 1'b0;
+   mod_t_valid = 1'b0;   
+
+   #20ps;
+
+   dac_sel = 2'b00;
+
+   #20ps;
+
+   ///////////////  TEST 6 SIZE 1024 LOADS PARALLEL FIFOS FOR ROUND ROBIN  ///////////////
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+
+   for(int ii = 0; ii < 2**10 ; ii++) begin            
+      stim_q.push_back(ii);
+   end
+
+   unload_q(stim_q);
+
+   stim_q.delete();
+   
 
    //while(stim_q.size() > 0) begin
    //

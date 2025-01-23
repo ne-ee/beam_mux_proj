@@ -192,9 +192,12 @@ begin
         dac2_t_valid <= '0';
         dac3_t_valid <= '0';
 
-        
+
+
+        -- Flush during reset, requires sustained reset
+        mod_t_ready <= '0';        
         for ii in 0 to N_FIFOS-1 loop
-          m_axis_tready_2(ii) <= '0';
+          m_axis_tready_2(ii) <= '1';
         end loop;
 
       else
@@ -215,9 +218,10 @@ begin
 
           --update tlast that is not currently receiving
           if ii /= to_integer(rx_fifo_sel) then
-            s_axis_tlast(ii) <= '0';
+            s_axis_tvalid(ii) <= '0';
+            s_axis_tlast(ii)  <= '0';
           end if;
-          
+
          end loop;
 
         -- Capture tlast
@@ -273,17 +277,18 @@ begin
         dac2_t_data <= m_axis_tdata_2(to_integer(tx_fifo_sel));
         dac3_t_data <= m_axis_tdata_2(to_integer(tx_fifo_sel));
 
+
         -- Default all to zero
+        -- Decode which of the 3 dacs is valid based on fifo with valid data,
+        -- and the locked dac_sel
         dac1_t_valid <= '0';
         dac2_t_valid <= '0';
         dac3_t_valid <= '0';
-        -- Decode which of the 3 dacs is valid based on fifo with valid data,
-        -- and the locked dac_sel
         case tx_ready_en(to_integer(tx_fifo_sel)) & dac_sel_locked is
           when "100" => dac1_t_valid <= '1';
           when "101" => dac2_t_valid <= '1';
           when "110" => dac3_t_valid <= '1';
-          when others => null; 
+          when others => null;
         end case;
         
       end if;
