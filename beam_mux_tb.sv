@@ -13,10 +13,45 @@
 
 module beam_mux_tb;
 
-   task load_q(input logic [31:0] q[$]);
-      @(posedge clk)
-	$display("Hello");
-   endtask // load_q
+   task unload_q(input logic [31:0] q[$]);
+      
+     while(q.size() > 0) begin
+     
+        @(posedge clk)
+     	
+        mod_t_valid <= 1'b0;
+        mod_t_data <= 32'd0;
+        
+        if(mod_t_ready == 1'b1) begin
+     	 
+          mod_t_valid <= 1'b1;	 
+       	  mod_t_data <= q.pop_front();
+        
+          $display("SIZE: %d, DEC: %d BIN: %b\n", q.size(), mod_t_data, mod_t_data);
+          
+          if(q.size() == 1) begin
+          	 mod_t_last <= 1'b1;
+          end else begin
+          	 mod_t_last <= 1'b0;	
+          end
+
+        end // if (mod_t_ready == 1'b1)
+     
+     end // while 
+     
+     #10ps;
+     
+     mod_t_last <= 1'b0;
+     mod_t_valid = 1'b0;
+     
+     #10ps;
+      
+   endtask // unload_q
+
+   //task load_q(input logic [31:0] q[$]);
+   //   @(posedge clk)
+   //	$display("Hello");
+   //endtask // load_q
 
    function void dsp(input string a);
       $display("GULP: %s", a);
@@ -156,33 +191,35 @@ initial begin
       stim_q.push_back(ii);
    end
 
-   while(stim_q.size() > 0) begin
+   unload_q(stim_q);
 
-      @(posedge clk)
-	
-      mod_t_valid <= 1'b0;
-      mod_t_data <= 32'd0;
-      
-      if(mod_t_ready == 1'b1) begin
-	 
-        mod_t_valid <= 1'b1;	 
-	mod_t_data <= stim_q.pop_front();
-      
-        $display("SIZE: %d, DEC: %d BIN: %b\n", stim_q.size(), mod_t_data, mod_t_data);
-        
-        if(stim_q.size() == 1) begin
-        	 mod_t_last <= 1'b1;
-        end else begin
-        	 mod_t_last <= 1'b0;	
-        end
-      end // if (mod_t_ready == 1'b1)
-
-   end // while (stim_q.size() > 0 && mod_t_ready == 1'b1)
-
-   #10ps;
-   
-   mod_t_last <= 1'b0;
-   mod_t_valid = 1'b0;
+   //while(stim_q.size() > 0) begin
+   //
+   //   @(posedge clk)
+   //	
+   //   mod_t_valid <= 1'b0;
+   //   mod_t_data <= 32'd0;
+   //   
+   //   if(mod_t_ready == 1'b1) begin
+   //	 
+   //     mod_t_valid <= 1'b1;	 
+   //	mod_t_data <= stim_q.pop_front();
+   //   
+   //     $display("SIZE: %d, DEC: %d BIN: %b\n", stim_q.size(), mod_t_data, mod_t_data);
+   //     
+   //     if(stim_q.size() == 1) begin
+   //     	 mod_t_last <= 1'b1;
+   //     end else begin
+   //     	 mod_t_last <= 1'b0;	
+   //     end
+   //   end // if (mod_t_ready == 1'b1)
+   //
+   //end // while (stim_q.size() > 0 && mod_t_ready == 1'b1)
+   //
+   //#10ps;
+   //
+   //mod_t_last <= 1'b0;
+   //mod_t_valid = 1'b0;
    
    dsp("Gulp");
    
