@@ -78,7 +78,8 @@ module beam_mux_tb;
 
   logic [31:0] stim_q[$];
   logic [31:0] stim_cpy_q[$];   
-  logic [31:0] result_q[$];      
+  logic [31:0] result_q[$];
+  integer load_size = 2**10;   
 
    beam_mux    #( // nbld:vhdl
 		  .N_BEAM_MUX_DACS(4)
@@ -119,10 +120,67 @@ initial begin
 
    #20ps;
 
-   dac_sel = 2'b00;
+   dac_sel = 2'b01;
 
    #20ps;
 
+   ///////////////  TEST 6 INCREASING 2^10->2^16 LOADS PARALLEL FIFOS  ///////////////   
+
+   for (int ld = 0; ld < 6; ld++) begin
+      
+     for(int ii = 0; ii < load_size ; ii++) begin            
+        stim_q.push_back(ii);
+     end
+     
+     unload_q(stim_q);
+     
+     stim_q.delete();
+      
+   end // for (int ld = 0; ld < 9; ld++)
+
+   load_size = 2*load_size;
+
+   #20ps;
+
+   dac_sel = 2'b10;
+
+   #20ps;
+
+   for (int ld = 0; ld < 6; ld++) begin
+      
+     for(int ii = 0; ii < load_size ; ii++) begin            
+        stim_q.push_back(ii);
+     end
+     
+     unload_q(stim_q);
+     
+     stim_q.delete();
+
+   end // for (int ld = 0; ld < 9; ld++)
+   
+   load_size = 2*load_size;
+   
+   #20ps;
+
+   dac_sel = 2'b11;
+
+   #20ps;
+
+   for (int ld = 0; ld < 6; ld++) begin
+      
+     for(int ii = 0; ii < load_size ; ii++) begin            
+        stim_q.push_back(ii);
+     end
+     
+     unload_q(stim_q);
+     
+     stim_q.delete();
+
+   end // for (int ld = 0; ld < 9; ld++)
+   
+   load_size = 2*load_size;
+   
+   
    ///////////////  TEST 4 SIZE 1024 LOADS PARALLEL FIFOS  ///////////////
 
    for(int ii = 0; ii < 2**10 ; ii++) begin            
@@ -172,7 +230,7 @@ initial begin
    #20ps;
    
 
-   ///////////////  TEST 4 SIZE 1024 LOADS PARALLEL FIFOS  ///////////////
+   ///////////////  TEST 9 ROUND ROBIN SIZE 1024 LOADS PARALLEL FIFOS  ///////////////
 
    for (int ld = 0; ld < 9; ld++) begin
    
@@ -184,8 +242,22 @@ initial begin
      
      stim_q.delete();
       
-   end
+   end // for (int ld = 0; ld < 9; ld++)
    
+
+   ///////////////  FLUSH  ///////////////      
+
+   #10ps;
+   
+   mod_t_last = 1'b0;
+   mod_t_valid = 1'b0;   
+
+   #10000ps;
+
+   dac_sel = 2'b01;
+
+   #20ps;
+
    
    ///////////////  RESET  ///////////////   
 
