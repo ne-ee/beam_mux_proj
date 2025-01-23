@@ -127,6 +127,7 @@ architecture behav of beam_mux is
   signal dac_round_robin_sel : unsigned(1 downto 0) := "00";
   signal dac_sel_r : unsigned(1 downto 0) := "00";
   signal dac_sel_locked : unsigned(1 downto 0) := "00";
+  signal round_robin_on : std_logic := '0';
   
 begin
 
@@ -191,8 +192,7 @@ begin
         dac1_t_valid <= '0';
         dac2_t_valid <= '0';
         dac3_t_valid <= '0';
-
-
+        round_robin_on <= '1';
 
         -- Flush during reset, requires sustained reset
         mod_t_ready <= '0';        
@@ -245,8 +245,12 @@ begin
 
         -- 
         dac_sel_r <= unsigned(dac_sel);
+        round_robin_on <= round_robin_on;
         if dac_sel_r /= "00" and dac_sel = "00"  then
           dac_round_robin_sel <= (others => '0');
+          round_robin_on <= not round_robin_on;
+        elsif dac_sel_r = "00" and dac_sel /= "00"  then
+          round_robin_on <= not round_robin_on;
         elsif dac_sel_r = "00" and dac_sel = "00" then
           dac_round_robin_sel <= dac_round_robin_sel;
           if dac_round_robin_sel = "11" then
@@ -284,10 +288,14 @@ begin
         dac1_t_valid <= '0';
         dac2_t_valid <= '0';
         dac3_t_valid <= '0';
-        case tx_ready_en(to_integer(tx_fifo_sel)) & dac_sel_locked is
-          when "100" => dac1_t_valid <= '1';
-          when "101" => dac2_t_valid <= '1';
-          when "110" => dac3_t_valid <= '1';
+        -- Works, but needs revising and review
+        case round_robin_on & tx_ready_en(to_integer(tx_fifo_sel)) & (dac_sel_locked)  is
+          when "0101" => dac1_t_valid <= '1';
+          when "0110" => dac2_t_valid <= '1';
+          when "0111" => dac3_t_valid <= '1';
+          when "1100" => dac1_t_valid <= '1';
+          when "1101" => dac2_t_valid <= '1';
+          when "1110" => dac3_t_valid <= '1';
           when others => null;
         end case;
         
