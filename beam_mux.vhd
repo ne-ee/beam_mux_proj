@@ -199,17 +199,21 @@ begin
 
       else
 
-        -- Drive AXI S protocol
+        -- Drive AXI S protocol to receiving fifo
         s_axis_tvalid(to_integer(rx_fifo_sel)) <= mod_t_valid;
         mod_t_ready <= s_axis_tready(to_integer(rx_fifo_sel));
         s_axis_tdata(to_integer(rx_fifo_sel)) <= mod_t_data;
         s_axis_tlast(to_integer(rx_fifo_sel)) <= mod_t_last;
 
-        --Type indexing quark btween custom arrays and std_logic_vector, just
-        --connnecting them
+        -- Assign axi stream values to signals not indexed with receiving fifo
+        -- index
         for ii in 0 to N_FIFOS-1 loop
+
+          --Type indexing quark btween custom arrays and std_logic_vector, just
+          --connnecting them
           m_axis_tready_2(ii) <= tx_ready_en(ii);
-          
+
+          --update tlast that is not currently receiving
           if ii /= to_integer(rx_fifo_sel) then
             s_axis_tlast(ii) <= '0';
           end if;
@@ -235,12 +239,13 @@ begin
           tx_fifo_sel <= tx_fifo_sel + 1;
         end if;
 
+        -- 
         dac_sel_r <= unsigned(dac_sel);
         if dac_sel_r /= "00" and dac_sel = "00"  then
           dac_round_robin_sel <= (others => '0');
         elsif dac_sel_r = "00" and dac_sel = "00" then
           dac_round_robin_sel <= dac_round_robin_sel;
-          if dac_round_robin_sel = "10" then
+          if dac_round_robin_sel = "11" then
             dac_round_robin_sel <= (others => '0');
           end if;
         else 
