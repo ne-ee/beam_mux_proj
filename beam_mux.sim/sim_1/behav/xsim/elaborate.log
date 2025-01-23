@@ -1,0 +1,36 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L axis_infrastructure_v1_1_0 -L axis_data_fifo_v2_0_9 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot beam_mux_tb_behav xil_defaultlib.beam_mux_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.fixed_float_types
+Compiling package ieee.fixed_pkg
+Compiling package ieee.math_real
+Compiling package xil_defaultlib.beam_mux_pkg
+Compiling module axis_infrastructure_v1_1_0.axis_infrastructure_v1_1_0_util_...
+Compiling module axis_infrastructure_v1_1_0.axis_infrastructure_v1_1_0_util_...
+Compiling module axis_infrastructure_v1_1_0.axis_infrastructure_v1_1_0_util_...
+Compiling module xpm.xpm_cdc_sync_rst(INIT=0,INIT_SYN...
+Compiling module xpm.xpm_fifo_rst(CDC_DEST_SYNC_FF=3)
+Compiling module xpm.xpm_fifo_reg_bit
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=1...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=1...
+Compiling module xpm.xpm_memory_base(MEMORY_TYPE=1,ME...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=2...
+Compiling module xpm.xpm_fifo_base(FIFO_WRITE_DEPTH=3...
+Compiling module xpm.xpm_fifo_axis(FIFO_DEPTH=32768,U...
+Compiling module axis_data_fifo_v2_0_9.axis_data_fifo_v2_0_9_top(C_FAMI...
+Compiling module xil_defaultlib.axis_data_fifo_0
+Compiling architecture behav of entity xil_defaultlib.beam_mux [beam_mux_default]
+Compiling module xil_defaultlib.beam_mux_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot beam_mux_tb_behav

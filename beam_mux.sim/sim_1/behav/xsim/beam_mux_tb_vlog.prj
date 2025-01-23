@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../beam_mux.ip_user_files/ipstatic/hdl" --include "../../../../" \
+"../../../../beam_mux.gen/sources_1/ip/axis_data_fifo_0/sim/axis_data_fifo_0.v" \
+
+sv xil_defaultlib  --include "../../../../beam_mux.ip_user_files/ipstatic/hdl" --include "../../../../" \
+"../../../../beam_mux_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

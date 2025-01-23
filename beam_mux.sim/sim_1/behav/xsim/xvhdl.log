@@ -1,0 +1,6 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Nicholas/AppData/Roaming/beam_mux/new_proj/beam_mux_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Nicholas/AppData/Roaming/beam_mux/new_proj/beam_mux.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'beam_mux'
+WARNING: [VRFC 10-3093] actual for formal port 's_axis_aresetn' is neither a static name nor a globally static expression [C:/Users/Nicholas/AppData/Roaming/beam_mux/new_proj/beam_mux.vhd:137]
+WARNING: [VRFC 10-3093] actual for formal port 'm_axis_tready' is neither a static name nor a globally static expression [C:/Users/Nicholas/AppData/Roaming/beam_mux/new_proj/beam_mux.vhd:144]
+WARNING: [VRFC 10-3093] actual for formal port 's_axis_aresetn' is neither a static name nor a globally static expression [C:/Users/Nicholas/AppData/Roaming/beam_mux/new_proj/beam_mux.vhd:156]

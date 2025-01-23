@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../beam_mux_pkg.vhd" \
+"../../../../beam_mux.vhd" \
+
+# Do not sort compile order
+nosort
