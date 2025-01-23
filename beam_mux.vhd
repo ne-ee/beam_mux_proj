@@ -192,10 +192,9 @@ begin
         dac2_t_valid <= '0';
         dac3_t_valid <= '0';
 
-
+        
         for ii in 0 to N_FIFOS-1 loop
           m_axis_tready_2(ii) <= '0';
-          
         end loop;
 
       else
@@ -210,6 +209,11 @@ begin
         --connnecting them
         for ii in 0 to N_FIFOS-1 loop
           m_axis_tready_2(ii) <= tx_ready_en(ii);
+          
+          if ii /= to_integer(rx_fifo_sel) then
+            s_axis_tlast(ii) <= '0';
+          end if;
+          
          end loop;
 
         -- Capture tlast
